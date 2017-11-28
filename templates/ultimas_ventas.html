@@ -1,0 +1,73 @@
+{% extends "ingreso_base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block head %}
+{{ super() }}
+
+<style>
+    *{
+        text-align: center;
+    }
+
+    #encabezado{
+        margin-top: 200px;
+    }
+
+    div{
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    td, th{
+        width: 20%;
+        
+        border: 2px solid grey;
+        text-align: center;
+    }
+
+    td{
+        background-color: hsl(200, 50%, 90%);
+    }
+
+    th{
+        background-color: hsl(200, 30%, 30%);
+        color: white;
+    }
+
+    a{
+        color: white !important;
+    }
+</style>
+
+{% endblock %}
+
+{% block title %}Ultimas ventas{% endblock %}
+
+{% block page_content %}
+
+<div id="encabezado">    
+    <h3>Ultimas ventas</h3>
+</div>
+
+<div>
+<table>
+    <tr>
+        <th>Código</th>
+        <th>Cliente</th>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+    </tr>
+        {% for x in last_s %}
+    <tr>
+        <td>{{ x.codigo }}</td>
+        <td>{{ x.cliente }}</td>
+        <td>{{ x.producto }}</td>
+        <td>{{ x.cantidad }}</td>
+        <td>{{ x.precio }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}
+

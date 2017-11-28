@@ -1,0 +1,24 @@
+{% extends "index_base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Log In{% endblock %}
+
+{% block head %}
+{{ super() }}
+<style>
+    #formulario_ing{
+        width: 30%;
+        margin: 0 auto;
+        position: absolute;
+        top: 200px;
+        left: 100px;
+    }
+</style>
+{% endblock %}
+
+{% block page_content %}
+<div id="formulario_ing">
+    <p>Ingrese Usuario y Contraseña</p>    
+    {{ wtf.quick_form(formulario) }}
+</div>
+{% endblock %}

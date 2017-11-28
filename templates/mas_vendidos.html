@@ -1,0 +1,31 @@
+{% extends "ingreso_base.html" %}
+
+{% block title %}Productos más vendidos{% endblock %}
+
+
+
+{% block page_content %}
+<div style="margin-top: 200px;">    
+    <h2>Productos más vendidos.</h2>
+</div>
+
+
+<div>
+<table>
+    <tr>
+        <th>Código</th>
+        <th>Producto</th>
+        <th>Cantidad</th>
+    </tr>
+        {% for result in producto_res %}
+            <tr>
+                <td>{{ result[1].codigo }}</td>
+                <td>{{ result[1].producto }}</td>
+                <td>{{ result[0] }}</td>
+            </tr>
+    {% endfor %}
+
+</table>
+</div>
+{% endblock %}
+

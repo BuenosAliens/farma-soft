@@ -1,0 +1,109 @@
+    {% extends "bootstrap/base.html" %}
+
+    {% block head %}
+    {{ super() }}
+    <style>
+      
+      ul{
+        background-color: hsl(200, 50%, 50%) !important;
+        list-style-type: none !important;
+      } 
+
+      li:hover a{
+        background-color: hsl(200, 50%, 50%) !important;
+        color: white !important;
+      }
+
+      *{
+            text-align: center;
+        }
+
+        
+
+        div{
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        td, th{
+            width: 20%;
+            
+            border: 2px solid grey;
+            text-align: center;
+        }
+
+        td{
+            background-color: hsl(200, 50%, 90%);
+        }
+
+        th{
+            background-color: hsl(200, 30%, 30%);
+            color: white;
+        }
+
+        nav a{
+            color: white !important;
+            background-color: background-color: hsl(200, 50%, 50%) !important;
+            border-radius: 10px;
+        }
+
+        a:hover{
+          transform: scale(1.2, 1.2);
+        }
+
+        table{ 
+          margin: 0 auto;
+          margin-bottom: 300px;
+        }
+
+        #encabezado{
+            margin-top: 200px;
+        }
+
+    </style>  
+
+    {% endblock %}
+
+
+    {% block navbar %}
+            <nav class="navbar navbar-default navbar-fixed-top" style="background-color: hsl(200, 50%, 50%);">
+                <div class="container">
+                 <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="/bienvenida" style="color: white;">F A R M A - S O F T</a>
+                </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li> <a href="/ingresar">Log In</a> </li>
+                        <li> <a href="/nuevoUsuario">Registrarse</a> <li>
+                    </ul>
+                </div>
+            </nav>
+
+           
+
+    {% endblock %}
+
+    {% block content %}
+    <div>
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+        {% endfor %}
+        <div>
+        {% block page_content %}
+        {% endblock %}
+        </div>
+    </div>
+    {% endblock %}
+    {% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {{ moment.lang('es') }}
+    {% endblock %}

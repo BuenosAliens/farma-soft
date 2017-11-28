@@ -1,0 +1,33 @@
+{% extends "index_base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Usuario Nuevo{% endblock %}
+
+{% block head %}
+{{ super() }}
+<style>
+    #formulario_ing{
+        width: 30%;
+        margin: 0 auto;
+        position: absolute;
+        top: 200px;
+        left: 100px;
+    }
+</style>
+{% endblock %}
+
+{% block page_content %}
+
+{% for message in get_flashed_messages() %}
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+        {% endfor %}
+
+<div id="formulario_ing">  
+<h3>Creación de Usuario</h3>
+<p>A continuación ingrese sus datos.</p>  
+    {{ wtf.quick_form(formulario) }}
+</div>
+{% endblock %}

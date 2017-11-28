@@ -1,0 +1,48 @@
+{% extends "ingreso_base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}Clientes por producto{% endblock %}
+
+{% block head %}
+{{ super() }}
+<style>
+
+
+</style>
+{% endblock %}
+
+{% block page_content %}
+
+<div style="margin-top: 200px;">    
+    {{ wtf.quick_form(form) }}
+    <p>{{ producto }}</p>
+    <h3>Listado de clientes x producto.</h3>
+    <u1 class="listado">
+     {% for x in productos %}
+         <li><a href="/clientes_prod/{{ x }}">{{ x }} | </a></li>
+     {% endfor %}
+    </u1>
+</div>
+
+<div style="margin: auto; margin-top: 100px;">
+<table>
+    <tr>
+        <th>Código</th>
+        <th>Producto</th>
+        <th>Cliente</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+    </tr>
+        {% for x in listar %}
+    <tr>
+        <td>{{ x.codigo }}</td>
+        <td>{{ x.producto }}</td>
+        <td>{{ x.cliente }}</td>
+        <td>{{ x.cantidad }}</td>
+        <td>{{ x.precio }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+<div>
+{% endblock %}
+

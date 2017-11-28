@@ -1,0 +1,31 @@
+{% extends "ingreso_base.html" %}
+
+{% block title %}Clientes que más compraron.{% endblock %}
+{% block head %}
+{{ super() }}
+
+{% endblock %}
+{% block page_content %}
+<div id="encabezado">    
+    <h3>Clientes que más compraron.</h3>
+</div>
+
+<div>
+<table style="width: 50%;">
+    <tr>
+        <th>Cliente</th>
+        <th>Valor total compras</th>
+
+    </tr>
+        {% for result in producto_res %}
+            <tr>    
+                <td>{{ result[1].cliente }}</td>
+                <td>{{ result[0] }}</td>
+            </tr>
+    {% endfor %}
+
+</table>
+</div>
+
+{% endblock %}
+
